@@ -1,0 +1,68 @@
+/*Lab 1
+ * Emily Vides
+ * CMSC 203
+ * Professor Monshi
+ * 2/14/22
+ */
+
+import java.util.Scanner;
+
+public class MovieDriver {
+	public static void main (String[] args)
+	{
+		//new scanner to read users input
+		Scanner userInput= new Scanner (System.in);
+		
+		//variables to hold users movie title and rating
+		String movieTitle; 
+		String movieRating ;
+		//variable to hold number of tickets sold
+		int movieTickets;
+		//char variable that will determine how many times this program will repeat
+		char answer='y';
+		
+		
+		
+		while (answer=='y')
+		{
+			// declaring a new Movie object
+			Movie m1= new Movie();
+			
+				//prompting user to enter a movie title
+				System.out.println("Enter the name of a movie:");
+			movieTitle = userInput.next();
+			//calling the setter method to set the title of the movie to the users input
+			m1.setTitle(movieTitle);
+		
+				//prompting the user to enter the movie rating
+				System.out.println("Enter the rating of the movie:");
+			movieRating =userInput.next();
+			//calling the setter method to set the movie rating to users input
+			m1.setRating(movieRating);
+		
+				//prompting the user to enter the amount of movie tickets sold
+				System.out.println("Enter the number of tickets sold:");
+			movieTickets=userInput.nextInt();
+			//calling the setter method to set the sold tickets to users input
+			m1.setSoldTickets(movieTickets);
+		
+				//calling the to string method to display the movie data all together
+				System.out.println(m1.toString());
+		
+				//prompting the user if they want to enter another movie and repeat the program
+				System.out.println("Do you want to enter another? (y or n)");
+				
+			//changing the value of char variable to the users input
+			answer= userInput.next().charAt(0);
+		}
+		
+		/*user chose not to repeat the program
+		this message displays
+		Program ends*/
+		System.out.println ("Goodbye");
+		
+		//closing scanner
+		userInput.close();
+	}
+
+}
